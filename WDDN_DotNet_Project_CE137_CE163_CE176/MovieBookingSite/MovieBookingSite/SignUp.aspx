@@ -17,11 +17,16 @@
             <br />
             <asp:TextBox ID="contact" placeholder ="Mobile number" runat="server"></asp:TextBox>
             <br />
-            <asp:TextBox ID="password" placeholder ="Password" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="confirmPassword" placeholder ="Confirm password" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Submit" onclick ="completeRegistration"/>
+            <!--- 
+                <input id="confirmPassword" type="password" placeholder=" Confirm Password" /> <br />
+            --->
+            <!--- 
+                <input id="password" type="password" placeholder="Password" />  <br />
+            --->
+                <asp:TextBox ID="password" TextMode="Password" placeholder ="Password" runat="server"></asp:TextBox> <br />
+                <asp:TextBox ID="confirmPassword" TextMode="Password"  placeholder ="Confirm password" runat="server"></asp:TextBox> <br />
+
+            <asp:Button ID="Button1" runat="server" Text="Submit" onclick ="handleRegistration"/>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             
         </div>
