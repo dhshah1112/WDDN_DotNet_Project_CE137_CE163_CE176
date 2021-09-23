@@ -1,11 +1,11 @@
 CREATE TABLE [dbo].[userDetails]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [userName] NVARCHAR(50) NULL, 
-    [Contact] NVARCHAR(50) NULL, 
-    [Email] NVARCHAR(50) NULL, 
-    [Name] NVARCHAR(50) NULL, 
-    [Password] NVARCHAR(50) NULL,
+    [userName] NVARCHAR(50) NOT NULL, 
+    [Contact] NVARCHAR(50) NOT NULL, 
+    [Email] NVARCHAR(50) NOT NULL, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Password] NVARCHAR(50) NOT NULL,
 
 )
 
@@ -13,18 +13,18 @@ CREATE TABLE [dbo].[userDetails]
 CREATE TABLE [dbo].[Admin]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [userName] NVARCHAR(50) NULL, 
-    [Password] NVARCHAR(50) NULL, 
-    [Email] NVARCHAR(50) NULL
+    [userName] NVARCHAR(50) NOT NULL, 
+    [Password] NVARCHAR(50) NOT NULL, 
+    [Email] NVARCHAR(50) NOT NULL
 )
 
 CREATE TABLE [dbo].[Ticket]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [MovieName] NVARCHAR(50) NULL, 
-    [SilverPrice] NVARCHAR(10) NULL, 
-    [GoldPrice] NVARCHAR(10) NULL, 
-    [PlatinumPrice] NVARCHAR(10) NULL,
+    [MovieName] NVARCHAR(50) NOT NULL, 
+    [SilverPrice] NVARCHAR(10) NOT NULL, 
+    [GoldPrice] NVARCHAR(10) NOT NULL, 
+    [PlatinumPrice] NVARCHAR(10) NOT NULL,
 
 )
 
