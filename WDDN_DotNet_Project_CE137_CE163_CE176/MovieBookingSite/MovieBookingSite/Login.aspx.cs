@@ -48,7 +48,7 @@ namespace MovieBookingSite
 
                     if (rowCount>0)
                     {
-                        Response.Redirect("LoggedIn.aspx?uname="+uname);
+                        Response.Redirect("LoggedIn.aspx");
                     }
                     else
                     {
