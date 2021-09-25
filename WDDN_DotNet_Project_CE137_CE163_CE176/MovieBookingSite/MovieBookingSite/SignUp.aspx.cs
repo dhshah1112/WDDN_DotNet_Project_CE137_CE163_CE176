@@ -33,7 +33,7 @@ namespace MovieBookingSite
                     Response.Write(email.Text + "<br>");
                     Response.Write(contact.Text + "<br>");
                     Response.Write(password.Text + "<br>");
-                    String sSQLCommand = "INSERT INTO userDetails (Name, userName, Email, Contact ,Password) VALUES ( '" + name.Text+ "','" + username.Text + "','" + email.Text + "','" + contact.Text + "','" + password.Text + "')";
+                    string sSQLCommand = "INSERT INTO userDetails (Name, userName, Email, Contact ,Password) VALUES ( '" + name.Text+ "','" + username.Text + "','" + email.Text + "','" + contact.Text + "','" + password.Text + "')";
                     SqlCommand cmd = new SqlCommand(sSQLCommand, con);
                     int inserted = cmd.ExecuteNonQuery();
                     cmd.Dispose();

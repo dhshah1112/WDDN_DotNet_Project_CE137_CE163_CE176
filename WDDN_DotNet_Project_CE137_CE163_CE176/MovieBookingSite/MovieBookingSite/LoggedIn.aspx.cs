@@ -12,9 +12,9 @@ namespace MovieBookingSite
         protected void Page_Load(object sender, EventArgs e)
         {
             int Sid = Convert.ToInt32(Session["userId"].ToString());
-            String Scontact = Session["contact"].ToString();
-            String Semail = Session["email"].ToString();
-            String Suname = Session["uname"].ToString();
+            string Scontact = Session["contact"].ToString();
+            string Semail = Session["email"].ToString();
+            string Suname = Session["uname"].ToString();
             uname.Text = Suname;
             id.Text = Convert.ToString(Sid);
             contact.Text = Scontact;
