@@ -24,13 +24,7 @@ namespace MovieBookingSite
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(retrieveMovies, con);
                     da.Fill(dt);
-                    //GridView1.DataSource = dt;
-                    //GridView1.DataBind();
-
                     con.Close();
-
-
-
                 }
             }
             catch(Exception err)
@@ -39,10 +33,13 @@ namespace MovieBookingSite
             }
         }
 
-        protected void Id_Click(object sender, EventArgs e)
+       
+        protected void handleBooking(object sender,EventArgs e)
         {
-            //Session["BookedId"]= (LinkButton)sender).Text);
-            Response.Redirect("movieDetails.aspx?Id=" + ((LinkButton)sender).Text);
+            LinkButton btn = (LinkButton)(sender);
+            string idval = btn.CommandArgument;
+            Response.Redirect("~/movieBooking.aspx?movieId=" + idval);
+            //Response.Redirect("~/movieBooking.aspx");
         }
     }
 }

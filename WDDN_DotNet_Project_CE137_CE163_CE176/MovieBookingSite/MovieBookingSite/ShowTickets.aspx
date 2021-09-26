@@ -17,7 +17,7 @@
         <div>
             <h1>Movie Details</h1>
             <br />
-                <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="Id" DataSourceID="SqlDataSource1" ForeColor="#333333">
+                <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" HorizontalAlign="Center" RepeatColumns="3" RepeatDirection="Horizontal">
                         <ItemTemplate> 
                             
                             <div class="row">
@@ -25,9 +25,10 @@
                                     <div class="card" style="width: 18rem;">
                                       <img class="card-img-top" src="<%# Eval("Image") %>" alt="Card image cap">
                                       <div class="card-body">
+                                          <asp:Label  ID="Label1" runat="server" Text=<%# Eval("Id") %>></asp:Label>
                                         <h5 class="card-title"><%# Eval("MovieName") %></h5>
-                                        <p class="card-text"> <%# Eval("Description") %> </p>
-                                          <button type="button" class="btn btn-primary">Book</button>
+                                        <p class="card-text"> <%# Eval("Description") %> </p>  
+                                          <asp:LinkButton CssClass="btn-danger" CommandArgument=<%#Eval("Id")%> ID="LinkButton1" OnClick="handleBooking" runat="server">Book</asp:LinkButton>
                                     </div>
                                 </div>
                              </div>

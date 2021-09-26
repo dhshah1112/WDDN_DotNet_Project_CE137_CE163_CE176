@@ -131,7 +131,7 @@
     <Content Include="Home.aspx" />
     <Content Include="LoggedIn.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="movieDetails.aspx" />
+    <Content Include="movieBooking.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -237,12 +237,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="movieDetails.aspx.cs">
-      <DependentUpon>movieDetails.aspx</DependentUpon>
+    <Compile Include="movieBooking.aspx.cs">
+      <DependentUpon>movieBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="movieDetails.aspx.designer.cs">
-      <DependentUpon>movieDetails.aspx</DependentUpon>
+    <Compile Include="movieBooking.aspx.designer.cs">
+      <DependentUpon>movieBooking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowTickets.aspx.cs">

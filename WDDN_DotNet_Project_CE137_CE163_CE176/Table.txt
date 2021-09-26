@@ -30,14 +30,17 @@ CREATE TABLE [dbo].[Ticket] (
 );
 
 
-CREATE TABLE [dbo].[Bookings]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-    [userId] INT NOT NULL
-	CONSTRAINT userId_fk FOREIGN KEY (userId) REFERENCES userDetails(Id),
-    [Total] INT NOT NULL, 
-    [ticketId] INT NOT NULL 
-	CONSTRAINT ticketId_fk FOREIGN KEY (ticketId) REFERENCES Ticket(Id), 
-    [showTime] NVARCHAR(50) NOT NULL 
-)
+CREATE TABLE [dbo].[Bookings] (
+    [Id]       INT           NOT NULL IDENTITY,
+    [userId]   INT           NOT NULL,
+    [Total]    INT           NOT NULL,
+    [ticketId] INT           NOT NULL,
+    [showTime] NVARCHAR (50) NOT NULL,
+    [ticketType] NVARCHAR(50) NOT NULL, 
+    [total_tickets] INT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [userId_fk] FOREIGN KEY ([userId]) REFERENCES [dbo].[userDetails] ([Id]),
+    CONSTRAINT [ticketId_fk] FOREIGN KEY ([ticketId]) REFERENCES [dbo].[Ticket] ([Id])
+);
+
 

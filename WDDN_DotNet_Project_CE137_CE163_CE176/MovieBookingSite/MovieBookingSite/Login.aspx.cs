@@ -11,7 +11,7 @@ namespace MovieBookingSite
 
         }
 
-        protected void handleLogin(object sender, EventArgs e)
+        protected void HandleLogin(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = WebConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
