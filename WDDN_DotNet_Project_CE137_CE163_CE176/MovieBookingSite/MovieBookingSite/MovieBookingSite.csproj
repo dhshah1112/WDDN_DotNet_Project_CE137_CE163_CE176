@@ -114,6 +114,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateMovie.aspx" />
     <Content Include="CreateTicket.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMovie.aspx.cs">
+      <DependentUpon>CreateMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateMovie.aspx.designer.cs">
+      <DependentUpon>CreateMovie.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateTicket.aspx.cs">
       <DependentUpon>CreateTicket.aspx</DependentUpon>

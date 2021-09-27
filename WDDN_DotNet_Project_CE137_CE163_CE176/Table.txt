@@ -19,28 +19,53 @@ CREATE TABLE [dbo].[Admin]
 )
 
 CREATE TABLE [dbo].[Ticket] (
-    [Id]            INT           IDENTITY (1, 1) NOT NULL,
-    [MovieName]     NVARCHAR (50) NOT NULL,
-    [SilverPrice]   NVARCHAR (10) NOT NULL,
-    [GoldPrice]     NVARCHAR (10) NOT NULL,
-    [PlatinumPrice] NVARCHAR (10) NOT NULL,
-    [Description]   NCHAR (1000)  NOT NULL,
-    [Image]         NVARCHAR(MAX)  NOT NULL,
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
+	[MovieId] INT NOT NULL, 
+	CONSTRAINT [movieId_foreignkey] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
+    [SilverPrice]   NVARCHAR (10)  NOT NULL,
+    [GoldPrice]     NVARCHAR (10)  NOT NULL,
+    [PlatinumPrice] NVARCHAR (10)  NOT NULL,
+
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-
 CREATE TABLE [dbo].[Bookings] (
-    [Id]       INT           NOT NULL IDENTITY,
-    [userId]   INT           NOT NULL,
-    [Total]    INT           NOT NULL,
-    [ticketId] INT           NOT NULL,
-    [showTime] NVARCHAR (50) NOT NULL,
-    [ticketType] NVARCHAR(50) NOT NULL, 
-    [total_tickets] INT NOT NULL, 
+    [Id]            INT           IDENTITY (1, 1) NOT NULL,
+    [userId]        INT           NOT NULL,
+    [Total]         INT           NOT NULL,
+    [ticketId]      INT           NOT NULL,
+    [showTime]      NVARCHAR (50) NOT NULL,
+    [ticketType]    NVARCHAR (50) NOT NULL,
+    [total_tickets] INT           NOT NULL,
+    [MovieId] INT NOT NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [userId_fk] FOREIGN KEY ([userId]) REFERENCES [dbo].[userDetails] ([Id]),
-    CONSTRAINT [ticketId_fk] FOREIGN KEY ([ticketId]) REFERENCES [dbo].[Ticket] ([Id])
+    CONSTRAINT [ticketId_fk] FOREIGN KEY ([ticketId]) REFERENCES [dbo].[Ticket] ([Id]),
+    CONSTRAINT [MovieId_fk_2] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
 );
 
+
+
+
+
+
+CREATE TABLE [dbo].[Movie]
+(
+	[MovieId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [MovieName] NVARCHAR(100) NOT NULL, 
+    [MoviePoster] NVARCHAR(MAX) NULL, 
+    [MovieDescription] NVARCHAR(250) NULL
+)
+CREATE TABLE [dbo].[AvailableTickets]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [MovieId] INT NULL, 
+	CONSTRAINT [movieId_fk] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
+    [TicketId] INT NULL, 
+	CONSTRAINT [ticketId_foreignkey] FOREIGN KEY ([TicketId]) REFERENCES [dbo].[Ticket] ([Id]),
+    [ShowDate] NVARCHAR(50) NULL, 
+    [MaxSilverTickets] INT NULL, 
+    [MaxGoldTickets] INT NULL, 
+    [MaxPlatinumTickets] INT NULL
+)
 

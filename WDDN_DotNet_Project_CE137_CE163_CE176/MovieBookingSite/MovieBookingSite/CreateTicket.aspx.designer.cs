@@ -24,66 +24,75 @@ namespace MovieBookingSite
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// MovieName control.
+        /// silver_price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MovieName;
+        protected global::System.Web.UI.WebControls.TextBox silver_price;
 
         /// <summary>
-        /// SilverPrice control.
+        /// gold_price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SilverPrice;
+        protected global::System.Web.UI.WebControls.TextBox gold_price;
 
         /// <summary>
-        /// GoldPrice control.
+        /// platinum_price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox GoldPrice;
+        protected global::System.Web.UI.WebControls.TextBox platinum_price;
 
         /// <summary>
-        /// PlatinumPrice control.
+        /// max_silver_tickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PlatinumPrice;
+        protected global::System.Web.UI.WebControls.TextBox max_silver_tickets;
 
         /// <summary>
-        /// Desc control.
+        /// max_gold_tickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Desc;
+        protected global::System.Web.UI.WebControls.TextBox max_gold_tickets;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// max_platinum_tickets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.TextBox max_platinum_tickets;
 
         /// <summary>
-        /// Button1 control.
+        /// Show_Start_Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox Show_Start_Date;
+
+        /// <summary>
+        /// Create_Ticket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Create_Ticket;
     }
 }
