@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:HyperLink ID="CreateButton" NavigateUrl="~/CreateMovie.aspx"  runat="server">Create</asp:HyperLink>
+            <asp:HyperLink ID="CreateButton" NavigateUrl="~/CreateMovie.aspx"  runat="server">Create movie ticket</asp:HyperLink>
         </div>
     </form>
 </body>

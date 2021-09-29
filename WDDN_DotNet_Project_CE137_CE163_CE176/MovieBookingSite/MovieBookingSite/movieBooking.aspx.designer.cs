@@ -60,6 +60,42 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.DropDownList Ticket_type;
 
         /// <summary>
+        /// ShowDates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ShowDates;
+
+        /// <summary>
+        /// silver_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label silver_Price;
+
+        /// <summary>
+        /// gold_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gold_Price;
+
+        /// <summary>
+        /// platinum_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label platinum_Price;
+
+        /// <summary>
         /// Movie_Timings control.
         /// </summary>
         /// <remarks>

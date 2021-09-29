@@ -86,17 +86,32 @@ namespace MovieBookingSite
                 using (con)
                 {
                     con.Open();
-                    string retrieveMovies = "select * from Ticket as t where t.Id='" + movieId + "'";
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(retrieveMovies, con);
-                    da.Fill(dt);
-                    DataRow dr = dt.Rows[0];
-                    silverprice = Convert.ToInt32(dr["SilverPrice"]);
-                    goldprice = Convert.ToInt32(dr["GoldPrice"]);
-                    platinumprice = Convert.ToInt32(dr["PlatinumPrice"]);
-                    MoviePoster.ImageUrl = dr["Image"].ToString();
+                    string retrieveMovie = "select * from Movie where MovieId='"+movieId+"'";
+                    DataTable dt1 = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(retrieveMovie,con);
+                    da.Fill(dt1);
+                    DataRow dr = dt1.Rows[0];
                     Movie_Name.Text = dr["MovieName"].ToString();
-                    Movie_Description.Text = dr["Description"].ToString();
+                    Movie_Description.Text = dr["MovieDescription"].ToString();
+                    MoviePoster.ImageUrl = dr["MoviePoster"].ToString();
+                    string retrieveTickets = "select * from Ticket where MovieId='" + movieId + "'";
+                    SqlDataAdapter da2 = new SqlDataAdapter(retrieveTickets,con);
+                    DataTable dt2 = new DataTable();
+                    da2.Fill(dt2);
+                    dr = dt2.Rows[0];
+                    silver_Price.Text = dr["SilverPrice"].ToString();
+                    platinum_Price.Text = dr["PlatinumPrice"].ToString();
+                    gold_Price.Text = dr["GoldPrice"].ToString();
+                    string retrieveAvailableTickets = "select * from AvailableTickets where MovieId='" + movieId + "'";
+                    SqlDataAdapter da3 = new SqlDataAdapter(retrieveAvailableTickets,con);
+                    DataTable dt3 = new DataTable();
+                    da3.Fill(dt3);
+                    ShowDates.Items.Clear();
+                    foreach(DataRow dr2 in dt3.Rows)
+                    {
+                        ShowDates.Items.Add(dr2["ShowDate"].ToString());
+
+                    }
                     con.Close();
                 }
             }

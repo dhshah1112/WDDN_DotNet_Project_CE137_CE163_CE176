@@ -10,12 +10,19 @@
     <form id="form1" runat="server" enctype="multipart/form-data">
         <div>
             <asp:TextBox ID="silver_price" placeholder="Silver Price" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="gold_price" placeholder="Gold Price" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="platinum_price" placeholder="Platinum Price" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="max_silver_tickets" placeholder="Max Silver Tickets" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="max_gold_tickets" placeholder="Max Gold Tickets" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="max_platinum_tickets" placeholder="Max Platinum Tickets" runat="server"></asp:TextBox>
+            <br />
             <asp:TextBox ID="Show_Start_Date" placeholder="Starting Date of Show" TextMode="Date" runat="server"></asp:TextBox>
+            <br />
             <asp:Button ID="Create_Ticket" runat="server" Text="Create" OnClick="HandleCreateTicket" />
         </div>
     </form>

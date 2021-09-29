@@ -9,9 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:TextBox ID="movie_name" runat="server"></asp:TextBox>
+            <asp:TextBox ID="movie_name" placeholder="Movie Name" runat="server"></asp:TextBox>
             <asp:FileUpload ID="movie_poster"  runat="server" />
-            <asp:TextBox ID="movie_description" runat="server"></asp:TextBox>
+            <asp:TextBox ID="movie_description" placeholder="Movie description" runat="server"></asp:TextBox>
             <asp:Button ID="Create" runat="server" OnClick="HandleCreateMovie" Text="Create" />
         </div>
     </form>

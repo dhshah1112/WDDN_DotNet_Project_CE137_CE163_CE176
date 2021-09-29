@@ -24,7 +24,15 @@
                 <asp:ListItem Value="Gold" />
                 <asp:ListItem Value="Platinum" />
             </asp:DropDownList>
+            <asp:DropDownList ID="ShowDates" runat="server">
+                
+            </asp:DropDownList>
+            <asp:Label runat="server" Id="silver_Price" Text=""></asp:Label>
+            <asp:Label runat="server" Id="gold_Price" Text=""></asp:Label>
+            <asp:Label runat="server" Id="platinum_Price"  Text=""></asp:Label>
+
             <asp:DropDownList ID="Movie_Timings" runat="server">
+
                 <asp:ListItem Text="Select Timings"/>
                 <asp:ListItem Value="9AM-12PM" />
                 <asp:ListItem Value="12PM-3PM" />

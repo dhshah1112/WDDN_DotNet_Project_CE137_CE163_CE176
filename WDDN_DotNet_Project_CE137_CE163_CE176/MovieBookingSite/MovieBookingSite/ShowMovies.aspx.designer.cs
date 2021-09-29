@@ -11,7 +11,7 @@ namespace MovieBookingSite
 {
 
 
-    public partial class ShowTickets
+    public partial class ShowMovies
     {
 
         /// <summary>

@@ -161,7 +161,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="ShowTickets.aspx" />
+    <Content Include="ShowMovies.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
@@ -253,12 +253,12 @@
       <DependentUpon>movieBooking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowTickets.aspx.cs">
-      <DependentUpon>ShowTickets.aspx</DependentUpon>
+    <Compile Include="ShowMovies.aspx.cs">
+      <DependentUpon>ShowMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ShowTickets.aspx.designer.cs">
-      <DependentUpon>ShowTickets.aspx</DependentUpon>
+    <Compile Include="ShowMovies.aspx.designer.cs">
+      <DependentUpon>ShowMovies.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
