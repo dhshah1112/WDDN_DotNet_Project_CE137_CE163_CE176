@@ -24,15 +24,6 @@ namespace MovieBookingSite
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// MoviePoster control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image MoviePoster;
-
-        /// <summary>
         /// Movie_Name control.
         /// </summary>
         /// <remarks>
@@ -51,6 +42,15 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.Label Movie_Description;
 
         /// <summary>
+        /// MoviePoster control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image MoviePoster;
+
+        /// <summary>
         /// Ticket_type control.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ShowDates;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// silver_Price control.
@@ -105,6 +114,33 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.DropDownList Movie_Timings;
 
         /// <summary>
+        /// silverT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label silverT;
+
+        /// <summary>
+        /// goldT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label goldT;
+
+        /// <summary>
+        /// platT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label platT;
+
+        /// <summary>
         /// Number_of_tickets control.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,15 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Total_Price;
+
+        /// <summary>
+        /// Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Error;
 
         /// <summary>
         /// Confirm_Booking control.

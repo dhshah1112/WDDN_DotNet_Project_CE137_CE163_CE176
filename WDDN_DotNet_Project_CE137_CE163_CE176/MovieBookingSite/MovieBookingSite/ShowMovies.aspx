@@ -21,7 +21,6 @@
                             <asp:LinkButton ID="LinkButton1" CommandArgument=<%#Eval("MovieId") %>  OnClick="ShowDetail" runat="server">Show details!!</asp:LinkButton>
                         </div>
                     </div>
-
                     <br />
                 </ItemTemplate>
             </asp:DataList>

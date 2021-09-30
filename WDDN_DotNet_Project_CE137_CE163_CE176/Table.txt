@@ -9,7 +9,6 @@ CREATE TABLE [dbo].[userDetails]
 
 )
 
-
 CREATE TABLE [dbo].[Admin]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
@@ -37,15 +36,13 @@ CREATE TABLE [dbo].[Bookings] (
     [showTime]      NVARCHAR (50) NOT NULL,
     [ticketType]    NVARCHAR (50) NOT NULL,
     [total_tickets] INT           NOT NULL,
-    [MovieId] INT NOT NULL, 
+    [MovieId]       INT           NOT NULL,
+    [BookedDate] NVARCHAR(50) NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [userId_fk] FOREIGN KEY ([userId]) REFERENCES [dbo].[userDetails] ([Id]),
     CONSTRAINT [ticketId_fk] FOREIGN KEY ([ticketId]) REFERENCES [dbo].[Ticket] ([Id]),
-    CONSTRAINT [MovieId_fk_2] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
+    CONSTRAINT [MovieId_fk_2] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId])
 );
-
-
-
 
 
 
