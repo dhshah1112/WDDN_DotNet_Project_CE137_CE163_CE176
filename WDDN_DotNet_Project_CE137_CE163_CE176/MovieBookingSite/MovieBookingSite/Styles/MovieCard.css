@@ -1,0 +1,69 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie_card {
+    height: 45vh;
+    width: 40vw;
+    background-color: black;
+    margin: 5vw;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 0 10px #000000;
+}
+
+    .movie_card:hover {
+        box-shadow: 0 0 10px #000000;
+        transition: 0.3s;
+        transform: scale(1.1);
+    }
+
+.movie_card_poster_img {
+    height: inherit;
+    border-radius: 7px;
+    width: 40%;
+    object-fit: cover center;
+}
+
+.movie_card_info {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.movie_title {
+    font-size: 2rem;
+    margin-top: 1vw;
+    margin-left: 1.5vw;
+}
+
+.movie_description {
+    margin: 1.3vw;
+    font-size: 0.9rem;
+}
+
+.buy_tickets_button {
+    padding: 3%;
+    border: none;
+    font-family: 'Roboto';
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: yellow;
+}
+
+..buy_tickets_button:hover {
+    text-decoration: none;
+}

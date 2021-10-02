@@ -18,15 +18,15 @@ CREATE TABLE [dbo].[Admin]
 )
 
 CREATE TABLE [dbo].[Ticket] (
-    [Id]            INT            IDENTITY (1, 1) NOT NULL,
-	[MovieId] INT NOT NULL, 
-	CONSTRAINT [movieId_foreignkey] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
-    [SilverPrice]   NVARCHAR (10)  NOT NULL,
-    [GoldPrice]     NVARCHAR (10)  NOT NULL,
-    [PlatinumPrice] NVARCHAR (10)  NOT NULL,
-
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Id]            INT           IDENTITY (1, 1) NOT NULL,
+    [MovieId]       INT           NOT NULL,
+    [SilverPrice]   NVARCHAR (10) NOT NULL,
+    [GoldPrice]     NVARCHAR (10) NOT NULL,
+    [PlatinumPrice] NVARCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [movieId_foreignkey] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]) ON DELETE CASCADE
 );
+
 
 CREATE TABLE [dbo].[Bookings] (
     [Id]            INT           IDENTITY (1, 1) NOT NULL,

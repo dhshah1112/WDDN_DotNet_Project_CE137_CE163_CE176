@@ -11,12 +11,22 @@ namespace MovieBookingSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["userId"]==null)
+            {
+                Response.Redirect("~/Login.aspx?unauth=1");
+            }
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void HandleLogout(object sender, EventArgs e)
         {
+            if(Session["userId"]!=null)
+            {
+                Session.Remove("userId");
+                Session.Remove("uname");
+                Session.Remove("contact");
+                Session.Remove("email");
+                Response.Redirect("~/Login.aspx?loggedout=1");
 
+            }
         }
     }
 }

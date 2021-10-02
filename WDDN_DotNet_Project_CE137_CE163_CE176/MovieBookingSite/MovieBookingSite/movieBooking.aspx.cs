@@ -23,7 +23,7 @@ namespace MovieBookingSite
         List<maxTicketPerDay>  maxDays = new List<maxTicketPerDay>();
         string dateSelected;
         int ticketsLeft;
-
+        bool validTransaction = false;
         protected void fetchMaxTickets()
         {
             maxDays.Clear();
@@ -53,10 +53,8 @@ namespace MovieBookingSite
         {
             string tickettype = Ticket_type.SelectedValue.ToString();
             int numberoftickets = 0;
-            Response.Write("Nummber of tickets "+Number_of_tickets.Text);
             if (Number_of_tickets.Text != "")
             {
-                Response.Write("Inside");
                 numberoftickets = Convert.ToInt32(Number_of_tickets.Text);
                 if (tickettype == "Silver")
                     totalprice = numberoftickets * silverprice;
@@ -90,109 +88,149 @@ namespace MovieBookingSite
 
         protected void Confirm_Booking_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = WebConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
-            try
+            if (validTransaction)
             {
-                using(con)
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = WebConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
+                try
                 {
-                    Error.Text = "";
-                    //---Testing---
-                    dateSelected= ShowDates.SelectedItem.Value;
-                    Response.Write(dateSelected+"   asaxaca<br />");
-                    con.Open();
-                    //---get ticket id---
-                    string getTickedId = " Select Id from Ticket where MovieId=" + movieId;
-                    DataTable dtt = new DataTable();
-                    SqlDataAdapter sqlda = new SqlDataAdapter(getTickedId,con);
-                    sqlda.Fill(dtt);
-                    DataRow drr = dtt.Rows[0];
-                    int ticketId = Convert.ToInt32(drr["Id"]);
-                    
-                    //-- insert to booking ---
-                    int userId = Convert.ToInt32(Session["userId"]);
-                    string movie_timings = Movie_Timings.SelectedItem.Text;
-                    int total_tickets = Convert.ToInt32(Number_of_tickets.Text);
-                    int total = Convert.ToInt32(Total_Price.Text);
-                    string ticket_type = Ticket_type.SelectedItem.Text;
-                    
-                    string insertcmd = "insert into Bookings(userId,Total,ticketId,showTime,ticketType,total_tickets,MovieId,BookedDate)values('" + userId + "','" + total + "','" + ticketId + "','" + movie_timings + "','" + ticket_type + "','" + total_tickets + "','"+movieId+"','"+dateSelected+"')";
-                    SqlCommand cmd = new SqlCommand(insertcmd, con);
-                    int inserted = cmd.ExecuteNonQuery();
-
-                    //---updating ticket---
-                    string updateMaxSeats;
-
-                    Response.Write("tickets left: " + ticketsLeft + "<br/>");
-                    if(ticket_type=="Silver")
-                        updateMaxSeats = "Update AvailableTickets set MaxSilverTickets=" + ticketsLeft+"where ShowDate='"+dateSelected+"'";
-                    else if(ticket_type == "Gold")
-                        updateMaxSeats = "Update AvailableTickets set MaxGoldTickets=" + ticketsLeft + "where ShowDate='" + dateSelected+"'";
-                    else
-                        updateMaxSeats = "Update AvailableTickets set MaxPlatinumTickets=" + ticketsLeft + "where ShowDate='" + dateSelected+"'";
-                                         
-                    SqlCommand cmd1 = new SqlCommand(updateMaxSeats, con);
-                    int rowsInserted = cmd1.ExecuteNonQuery();
-
-                    fetchMaxTickets();
-
-                    con.Close();
-
-                    if (inserted == 1)
+                    using (con)
                     {
-                        Response.Write("inserted");
-                    }
-                    else
-                    {
-                        Response.Write("Error");
-                    }
+                        Error.Text = "";
+                        //---Testing---
+                        dateSelected = ShowDates.SelectedItem.Value;
+                        Response.Write(dateSelected + "   asaxaca<br />");
+                        con.Open();
+                        //---get ticket id---
+                        string getTickedId = " Select Id from Ticket where MovieId=" + movieId;
+                        DataTable dtt = new DataTable();
+                        SqlDataAdapter sqlda = new SqlDataAdapter(getTickedId, con);
+                        sqlda.Fill(dtt);
+                        DataRow drr = dtt.Rows[0];
+                        int ticketId = Convert.ToInt32(drr["Id"]);
 
+                        //-- insert to booking ---
+                        int userId = Convert.ToInt32(Session["userId"]);
+                        string movie_timings = Movie_Timings.SelectedItem.Text;
+                        int total_tickets = Convert.ToInt32(Number_of_tickets.Text);
+                        int total = Convert.ToInt32(Total_Price.Text);
+                        string ticket_type = Ticket_type.SelectedItem.Text;
+
+                        string insertcmd = "insert into Bookings(userId,Total,ticketId,showTime,ticketType,total_tickets,MovieId,BookedDate)values('" + userId + "','" + total + "','" + ticketId + "','" + movie_timings + "','" + ticket_type + "','" + total_tickets + "','" + movieId + "','" + dateSelected + "')";
+                        SqlCommand cmd = new SqlCommand(insertcmd, con);
+                        int inserted = cmd.ExecuteNonQuery();
+
+                        //---updating ticket---
+                        string updateMaxSeats;
+
+                        Response.Write("tickets left: " + ticketsLeft + "<br/>");
+                        if (ticket_type == "Silver")
+                            updateMaxSeats = "Update AvailableTickets set MaxSilverTickets=" + ticketsLeft + "where ShowDate='" + dateSelected + "'";
+                        else if (ticket_type == "Gold")
+                            updateMaxSeats = "Update AvailableTickets set MaxGoldTickets=" + ticketsLeft + "where ShowDate='" + dateSelected + "'";
+                        else
+                            updateMaxSeats = "Update AvailableTickets set MaxPlatinumTickets=" + ticketsLeft + "where ShowDate='" + dateSelected + "'";
+
+                        SqlCommand cmd1 = new SqlCommand(updateMaxSeats, con);
+                        int rowsInserted = cmd1.ExecuteNonQuery();
+
+                        fetchMaxTickets();
+
+                        con.Close();
+
+                        if (inserted == 1)
+                        {
+                            Response.Write("inserted");
+                        }
+                        else
+                        {
+                            Response.Write("Error");
+                        }
+
+                    }
+                }
+                catch (Exception err)
+                {
+                    Response.Write(err.Message);
                 }
             }
-            catch(Exception err)
+            else
             {
-                Response.Write(err.Message);
+                string message = "Please enter valid info";
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append("<script type = 'text/javascript'>");
+                sb.Append("window.onload=function(){");
+                sb.Append("alert('");
+                sb.Append(message);
+                sb.Append("')};");
+                sb.Append("</script>");
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
             }
 
         }
         protected void Number_of_tickets_TextChanged(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(Number_of_tickets.Text) != 0)
+            {
 
-            string tickettype = Ticket_type.SelectedValue.ToString();
-            if (tickettype == "Silver")
-            {
-                if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(silverT.Text))
+                string tickettype = Ticket_type.SelectedValue.ToString();
+                if (tickettype == "Silver")
                 {
-                    ticketsLeft = Convert.ToInt32(silverT.Text) - Convert.ToInt32(Number_of_tickets.Text);
-                    computeTotal();
+                    var isvalid = Int32.TryParse(silverT.Text, out int result);
+                    if (isvalid)
+                    {
+                        if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(silverT.Text))
+                        {
+                            ticketsLeft = Convert.ToInt32(silverT.Text) - Convert.ToInt32(Number_of_tickets.Text);
+                            computeTotal();
+                            validTransaction = true;
+                        }
+                        else
+                        {
+                            Error.Text = "Not Enough seats, " + silverT.Text + "silver seats left.";
+                        }
+                    }
+
                 }
-                else
-                    Error.Text = "Not Enough seats, " + silverT.Text + "silver seats left.";
+                else if (tickettype == "Gold")
+                {
+                    var isvalid = Int32.TryParse(goldT.Text, out int result);
+                    if (isvalid)
+                    {
+                        if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(goldT.Text))
+                        {
+                            ticketsLeft = Convert.ToInt32(goldT.Text) - Convert.ToInt32(Number_of_tickets.Text);
+                            computeTotal();
+                            validTransaction = true;
+                        }
+                        else
+                        {
+                            Error.Text = "Not Enough seats, " + goldT.Text + "gold seats left.";
+                        }
+                    }
+
+                }
+                else if (tickettype == "Platinum")
+                {
+                    var isvalid = Int32.TryParse(silverT.Text, out int result);
+                    if (isvalid)
+                    {
+                        if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(platT.Text))
+                        {
+                            ticketsLeft = Convert.ToInt32(platT.Text) - Convert.ToInt32(Number_of_tickets.Text);
+                            computeTotal();
+                            validTransaction = true;
+
+                        }
+                        else
+                        {
+                            Error.Text = "Not Enough seats, " + platT.Text + "plat seats left.";
+                        }
+                    }
+
+                }
             }
-            else if (tickettype == "Gold")
-            {
-                if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(goldT.Text))
-                {
-                    ticketsLeft =  Convert.ToInt32(goldT.Text) - Convert.ToInt32(Number_of_tickets.Text);
-                    computeTotal();
-                }
-                else
-                {
-                    Error.Text = "Not Enough seats, " + goldT.Text + "gold seats left.";
-                }
-            }
-            else if (tickettype == "Platinum")
-            {
-                if (Convert.ToInt32(Number_of_tickets.Text) <= Convert.ToInt32(platT.Text))
-                {
-                    ticketsLeft = Convert.ToInt32(platT.Text) - Convert.ToInt32(Number_of_tickets.Text);
-                    computeTotal();
-                }
-                else
-                {
-                    Error.Text = "Not Enough seats, " + platT.Text + "plat seats left.";
-                }
-            }
+            fetchMaxTickets();
         }
 
         protected void Ticket_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,41 +239,48 @@ namespace MovieBookingSite
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            movieId = Convert.ToInt32(Request.QueryString["movieId"]);
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = WebConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
-            try
+            if(Session["userId"]==null)
             {
-                using (con)
-                {
-                    con.Open();
-                    string retrieveMovie = "select * from Movie where MovieId='"+movieId+"'";
-                    DataTable dt1 = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(retrieveMovie,con);
-                    da.Fill(dt1);
-                    DataRow dr = dt1.Rows[0];
-                    Movie_Name.Text = dr["MovieName"].ToString();
-                    Movie_Description.Text = dr["MovieDescription"].ToString();
-                    MoviePoster.ImageUrl = dr["MoviePoster"].ToString();
-                    string retrieveTickets = "select * from Ticket where MovieId='" + movieId + "'";
-                    SqlDataAdapter da2 = new SqlDataAdapter(retrieveTickets,con);
-                    DataTable dt2 = new DataTable();
-                    da2.Fill(dt2);
-                    dr = dt2.Rows[0];
-                    silver_Price.Text = dr["SilverPrice"].ToString();
-                    platinum_Price.Text = dr["PlatinumPrice"].ToString();
-                    gold_Price.Text = dr["GoldPrice"].ToString();
-
-                    silverprice=Convert.ToInt32( dr["SilverPrice"]);
-                    platinumprice = Convert.ToInt32(dr["PlatinumPrice"]);
-                    goldprice = Convert.ToInt32(dr["GoldPrice"]);
-                    con.Close();
-                    fetchMaxTickets();
-                }
+                Response.Redirect("~/Login.aspx?unauth=1");
             }
-            catch (Exception err)
+            else
             {
-                Response.Write(err.Message);
+                movieId = Convert.ToInt32(Request.QueryString["movieId"]);
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = WebConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
+                try
+                {
+                    using (con)
+                    {
+                        con.Open();
+                        string retrieveMovie = "select * from Movie where MovieId='" + movieId + "'";
+                        DataTable dt1 = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(retrieveMovie, con);
+                        da.Fill(dt1);
+                        DataRow dr = dt1.Rows[0];
+                        Movie_Name.Text = dr["MovieName"].ToString();
+                        Movie_Description.Text = dr["MovieDescription"].ToString();
+                        MoviePoster.ImageUrl = dr["MoviePoster"].ToString();
+                        string retrieveTickets = "select * from Ticket where MovieId='" + movieId + "'";
+                        SqlDataAdapter da2 = new SqlDataAdapter(retrieveTickets, con);
+                        DataTable dt2 = new DataTable();
+                        da2.Fill(dt2);
+                        dr = dt2.Rows[0];
+                        silver_Price.Text = dr["SilverPrice"].ToString();
+                        platinum_Price.Text = dr["PlatinumPrice"].ToString();
+                        gold_Price.Text = dr["GoldPrice"].ToString();
+
+                        silverprice = Convert.ToInt32(dr["SilverPrice"]);
+                        platinumprice = Convert.ToInt32(dr["PlatinumPrice"]);
+                        goldprice = Convert.ToInt32(dr["GoldPrice"]);
+                        con.Close();
+                        fetchMaxTickets();
+                    }
+                }
+                catch (Exception err)
+                {
+                    Response.Write(err.Message);
+                }
             }
         }
     }

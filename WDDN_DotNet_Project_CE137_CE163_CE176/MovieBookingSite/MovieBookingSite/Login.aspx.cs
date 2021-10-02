@@ -8,6 +8,18 @@ namespace MovieBookingSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Convert.ToInt32(Request.QueryString["invalid"])==1)
+            {
+                User_Action.Text = "Invalid Credentials";
+            }
+            if (Convert.ToInt32(Request.QueryString["loggedout"]) == 1)
+            {
+                User_Action.Text = "Successfully logged out";
+            }
+            if (Convert.ToInt32(Request.QueryString["unauth"]) == 1)
+            {
+                User_Action.Text = "Please login first";
+            }
 
         }
 
@@ -24,35 +36,33 @@ namespace MovieBookingSite
                 {
                     con.Open();
                     string matchUser = "SELECT * FROM userDetails where Password='"+Password.Text+"' and userName='"+userName.Text+"'";
-                    //SqlCommand cmd = new SqlCommand(matchUser, con);
-                    //SqlDataReader fetchedUser = cmd.ExecuteReader();
+                  
 
                     SqlDataAdapter da = new SqlDataAdapter(matchUser,con);
                     da.Fill(dt);
-                    dr = dt.Rows[0];
-
-                    string id = Convert.ToString( dr[0]);
-                    string uname = Convert.ToString(dr[1]);
-                    string contact = Convert.ToString(dr[2]);
-                    string email = Convert.ToString(dr[3]);
-
-                    Response.Write(id+"<br>");
-                    Response.Write(uname+"<br>");
                     int rowCount = dt.Rows.Count;
-
-                    Session["userId"] = id;
-                    Session["uname"] = uname;
-                    Session["contact"] = contact;
-                    Session["email"] = email;
-
-
-                    if (rowCount>0)
+                    if (rowCount > 0)
                     {
-                        Response.Redirect("LoggedIn.aspx");
+                      
+                        dr = dt.Rows[0];
+                        string id = Convert.ToString(dr[0]);
+                        string uname = Convert.ToString(dr[1]);
+                        string contact = Convert.ToString(dr[2]);
+                        string email = Convert.ToString(dr[3]);
+
+                        Response.Write(id + "<br>");
+                        Response.Write(uname + "<br>");
+
+
+                        Session["userId"] = id;
+                        Session["uname"] = uname;
+                        Session["contact"] = contact;
+                        Session["email"] = email;
+                        Response.Redirect("Home.aspx");
                     }
                     else
                     {
-                        Response.Write("Error");
+                        Response.Redirect("~/Login.aspx?invalid=1");
                     }
 
                     con.Close();
@@ -60,7 +70,6 @@ namespace MovieBookingSite
             }
             catch (Exception exception)
             {
-                Response.Write("INSIDE ERROR");
                 Response.Write(exception.Message);
             }
         }

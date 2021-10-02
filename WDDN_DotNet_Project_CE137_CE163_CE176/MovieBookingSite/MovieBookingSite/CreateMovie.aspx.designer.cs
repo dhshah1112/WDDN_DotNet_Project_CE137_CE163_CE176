@@ -33,15 +33,6 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.TextBox movie_name;
 
         /// <summary>
-        /// movie_poster control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload movie_poster;
-
-        /// <summary>
         /// movie_description control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox movie_description;
+
+        /// <summary>
+        /// movie_poster control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload movie_poster;
 
         /// <summary>
         /// Create control.

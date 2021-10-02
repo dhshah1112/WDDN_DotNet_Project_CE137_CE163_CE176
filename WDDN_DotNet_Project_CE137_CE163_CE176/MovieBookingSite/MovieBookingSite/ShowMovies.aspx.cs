@@ -11,7 +11,10 @@ namespace MovieBookingSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("~/Login.aspx?unauth=1");
+            }
         }
 
         protected void ShowDetail(object sender, EventArgs e)
@@ -20,6 +23,18 @@ namespace MovieBookingSite
             int movieId = Convert.ToInt32(btn.CommandArgument);
             Response.Redirect("~/movieBooking.aspx?movieId="+movieId);
              
+        }
+        protected void HandleLogout(object sender, EventArgs e)
+        {
+            if (Session["userId"] != null)
+            {
+                Session.Remove("userId");
+                Session.Remove("uname");
+                Session.Remove("contact");
+                Session.Remove("email");
+                Response.Redirect("~/Login.aspx?loggedout=1");
+
+            }
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿.nav_container {
+    width: 100vw;
+    height: 15vh;
+    background-color: #FFDAA1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+}
+
+.nav_img_logo {
+    height: 10%;
+    width: 20%;
+}
+
+.nav_menu {
+    display: flex;
+    margin-right: 2vw;
+    font-family: 'Montserrat';
+}
+
+.nav_logo {
+}
+
+.nav_links {
+    margin: 3vw;
+    font-size: 1.3rem;
+}
+
+    .nav_links:hover {
+        text-decoration: none;
+    }

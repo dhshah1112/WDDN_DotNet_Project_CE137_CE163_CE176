@@ -55,6 +55,7 @@ namespace MovieBookingSite
                 sqlcmd.ExecuteNonQuery();
                 startdate = startdate.AddDays(1.0);
             }
+            Response.Redirect("~/AdminDashboard.aspx?inserted=1");
             con.Close();
         }
     }
