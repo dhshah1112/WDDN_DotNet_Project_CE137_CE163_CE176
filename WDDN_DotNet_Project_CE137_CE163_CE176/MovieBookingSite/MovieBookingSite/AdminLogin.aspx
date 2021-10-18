@@ -92,13 +92,14 @@
             width: 120px;
         }
     </style>
-
+    
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <div class="login_container">
                 <div class="login_box">
+                    <h1 class="create_title">Admin Login</h1>
                     <asp:TextBox CssClass="text_input" ID="admin_uname" placeholder="Admin Username...." runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="text_input" ID="admin_pwd" placeholder="Admin Password...." TextMode="Password" runat="server"></asp:TextBox>
                     <asp:Button ID="LoginBtn" CssClass="btn w-25 p-3 mt-5 btn-primary" OnClick="HandleAdminLogin" runat="server" Text="Login!" />

@@ -16,6 +16,10 @@ namespace MovieBookingSite
             {
                 User_Action.Text = "Successfully logged out";
             }
+            if (Convert.ToInt32(Request.QueryString["signup"]) == 1)
+            {
+                User_Action.Text = "Successfully registered.Now login with your credentials";
+            }
             if (Convert.ToInt32(Request.QueryString["unauth"]) == 1)
             {
                 User_Action.Text = "Please login first";
@@ -48,8 +52,8 @@ namespace MovieBookingSite
                         string contact = Convert.ToString(dr[2]);
                         string email = Convert.ToString(dr[3]);
 
-                        Response.Write(id + "<br>");
-                        Response.Write(uname + "<br>");
+                        //Response.Write(id + "<br>");
+                        //Response.Write(uname + "<br>");
 
 
                         Session["userId"] = id;

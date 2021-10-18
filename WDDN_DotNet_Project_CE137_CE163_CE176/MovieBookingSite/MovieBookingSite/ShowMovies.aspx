@@ -97,10 +97,10 @@
 
         <div class="home_container">
             <nav>
-                <img src="Styles/images/logo.png" class="nav_logo" />
+                <asp:HyperLink NavigateUrl="~/Home.aspx" ID="HyperLink1" runat="server"><img src="Styles/images/logo.png" class="nav_logo" /></asp:HyperLink>
                 <ul>
                     <li><a href="#">
-                        <asp:HyperLink CssClass="nav_text" NavigateUrl="~/ShowMovies.aspx" runat="server"> <i class="fas fa-ticket-alt"></i> Bookings</asp:HyperLink></a></li>
+                        <asp:HyperLink CssClass="nav_text" NavigateUrl="~/Bookings.aspx" runat="server"> <i class="fas fa-ticket-alt"></i> Bookings</asp:HyperLink></a></li>
                     <li><a>
                         <asp:LinkButton ID="Logout" CssClass="nav_text" OnClick="HandleLogout" runat="server"><i class="fas fa-sign-out-alt"></i> Logout  </asp:LinkButton></a></li>
                 </ul>

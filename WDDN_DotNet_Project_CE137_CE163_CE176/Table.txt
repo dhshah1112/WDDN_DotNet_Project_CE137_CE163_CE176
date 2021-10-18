@@ -37,12 +37,15 @@ CREATE TABLE [dbo].[Bookings] (
     [ticketType]    NVARCHAR (50) NOT NULL,
     [total_tickets] INT           NOT NULL,
     [MovieId]       INT           NOT NULL,
-    [BookedDate]    NVARCHAR (50) NULL,
+    [BookedDate]    NVARCHAR (50) NOT NULL,
+    [MovieName] NVARCHAR(MAX) NOT NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [ticketId_fk] FOREIGN KEY ([ticketId]) REFERENCES [dbo].[Ticket] ([Id]),
     CONSTRAINT [userId_fk] FOREIGN KEY ([userId]) REFERENCES [dbo].[userDetails] ([Id]),
     CONSTRAINT [movieid_fk_avail_2] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]) ON DELETE CASCADE
 );
+
+
 
 CREATE TABLE [dbo].[Movie] (
     [MovieId]          INT            IDENTITY (1, 1) NOT NULL,

@@ -33,6 +33,15 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.TextBox name;
 
         /// <summary>
+        /// Name_Required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Name_Required;
+
+        /// <summary>
         /// username control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox username;
+
+        /// <summary>
+        /// username_required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator username_required;
 
         /// <summary>
         /// email control.
@@ -51,6 +69,15 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+        /// <summary>
         /// contact control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox contact;
+
+        /// <summary>
+        /// contact_required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator contact_required;
 
         /// <summary>
         /// password control.
@@ -69,6 +105,15 @@ namespace MovieBookingSite
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
+        /// password_required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator password_required;
+
+        /// <summary>
         /// confirmPassword control.
         /// </summary>
         /// <remarks>
@@ -76,6 +121,33 @@ namespace MovieBookingSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox confirmPassword;
+
+        /// <summary>
+        /// confirm_pass_required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator confirm_pass_required;
+
+        /// <summary>
+        /// compare_pass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator compare_pass;
+
+        /// <summary>
+        /// password_validation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator password_validation;
 
         /// <summary>
         /// Button1 control.
