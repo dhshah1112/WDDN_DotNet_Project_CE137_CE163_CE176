@@ -36,8 +36,6 @@ namespace MovieBookingSite
                 {
                     con.Open();
                     string matchUser = "SELECT * FROM userDetails where Password='"+Password.Text+"' and userName='"+userName.Text+"'";
-                  
-
                     SqlDataAdapter da = new SqlDataAdapter(matchUser,con);
                     da.Fill(dt);
                     int rowCount = dt.Rows.Count;

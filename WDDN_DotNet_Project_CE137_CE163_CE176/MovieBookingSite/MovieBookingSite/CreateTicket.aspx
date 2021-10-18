@@ -104,7 +104,6 @@
 </head>
 <body>
     <form id="form1" runat="server" enctype="multipart/form-data">
-
         <div class="create_container">
             <div class="create_box">
                 <h1 class="create_title">Create Ticket</h1>
@@ -117,26 +116,7 @@
             <asp:TextBox ID="Show_Start_Date" CssClass="text_input" placeholder="Starting Date of Show" TextMode="Date" runat="server"></asp:TextBox>
             <asp:Button ID="Create_Ticket" CssClass="btn btn-primary w-25 mt-3 p-3" runat="server" Text="Create" OnClick="HandleCreateTicket" />
             </div>
-
         </div>
-
-        <%--<div>
-            <asp:TextBox ID="silver_price" placeholder="Silver Price" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="gold_price" placeholder="Gold Price" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="platinum_price" placeholder="Platinum Price" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="max_silver_tickets" placeholder="Max Silver Tickets" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="max_gold_tickets" placeholder="Max Gold Tickets" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="max_platinum_tickets" placeholder="Max Platinum Tickets" runat="server"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="Show_Start_Date" placeholder="Starting Date of Show" TextMode="Date" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="Create_Ticket" runat="server" Text="Create" OnClick="HandleCreateTicket" />
-        </div>--%>
     </form>
 </body>
 </html>
