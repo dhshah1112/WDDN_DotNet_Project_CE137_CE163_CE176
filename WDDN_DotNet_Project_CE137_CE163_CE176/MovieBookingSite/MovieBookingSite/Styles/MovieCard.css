@@ -14,7 +14,6 @@
 .movie_card {
     height: 45vh;
     width: 40vw;
-    background-color: black;
     margin: 5vw;
     border-radius: 10px;
     display: flex;
